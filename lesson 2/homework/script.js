@@ -1,8 +1,13 @@
 // Task 1
 
 // let minute = 30;
-
+console.log('=========================Task 1=========================')
 let minute = window.prompt("Write down a number from 0 to 59!");
+
+while(typeof minute) 
+{
+    minute = window.prompt("Please, enter correct number. Write down a number from 0 to 59!");
+}
 
 if( minute >= 0 && minute <= 15) {
     console.log("quater 1");
@@ -17,7 +22,7 @@ if( minute >= 0 && minute <= 15) {
 }
 
 // Task 2
-
+console.log('=========================Task 2=========================')
 // let day= window.prompt("Write down a number of current day");
 const date = new Date();
 let day = date.getDate();
@@ -37,26 +42,20 @@ if( day >= 1 && day <= 10) {
 // }
 
 // Task 3
-
+console.log('=========================Task 3=========================')
 let test = true;
-let result;
 
-// if (!!test) {
-//     console.log('True');
-// }else {
-//     console.log('False');
-// }
-
-let getResult = function(a){
-  return (a != true) ? 'True': 'False';
+if (test != true) {
+    console.log('True');
+}else {
+    console.log('False');
 }
 
-getResult(test);
-
+console.log(test ? "False" : "True")
 
 
 // Task 4
-
+console.log('=========================Task 4=========================')
 let a = 1;
 switch (a) {
     case 0:
@@ -68,8 +67,9 @@ switch (a) {
 }
 
 // Task 5
+console.log('=========================Task 5=========================')
 const curriculum = document.getElementById('curriculum');
-let workday= window.prompt("Write down a number of current workday");
+let workday= Number(window.prompt("Write down a number of current workday"));
 
 switch (workday) {
     case 1:
@@ -77,7 +77,7 @@ switch (workday) {
          `<h3>Monday</h3>
          <ul> 
         <li>english</li>
-        <li>maths<li>
+        <li>maths</li>
         <li>history</li>
         </ul> `
         break;
@@ -86,16 +86,16 @@ switch (workday) {
      `<h3>Tuesday</h3>
     <ul> 
    <li>music</li>
-   <li>maths<li>
+   <li>maths</li>
    <li>history</li>
    </ul> `
    break;
    case 3: 
-   curriculum.innerText=
+   curriculum.innerHTML=
     `<h3>Wednesday</h3>
    <ul> 
   <li>art</li>
-  <li>maths<li>
+  <li>maths</li>
   <li>history</li>
   </ul> `
   break;
@@ -104,7 +104,7 @@ switch (workday) {
    `<h3>Thursday</h3>
   <ul> 
  <li>georaphy</li>
- <li>maths<li>
+ <li>maths</li>
  <li>history</li>
  </ul> `
  break;
