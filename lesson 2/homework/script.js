@@ -21,6 +21,12 @@ if (minute >= 0 && minute <= 15) {
     console.log("Please enter proper number");
 }
 
+
+// Variant 2
+console.log('=========================Task 1 Variant 2=========================')
+
+console.log("quater " + Math.ceil(minute / 15));
+
 // Task 2
 console.log('=========================Task 2=========================')
 // let day= window.prompt("Write down a number of current day");
