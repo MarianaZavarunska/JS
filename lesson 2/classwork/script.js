@@ -1,50 +1,81 @@
 // Task 1
 console.log('=========================Task 1=========================');
 
-let x = Number(window.prompt('Write down a number'));
-let y = Number(window.prompt('Write down a number'));
+const number1 = document.querySelector('.number1');
+const number2 = document.querySelector('.number2');
+const maxContainer = document.getElementById('max-container');
+const buttonMax = document.getElementById('btn-max');
 
-if ( isNaN(x) || isNaN(y)){
-    alert("Thats not a number")
-}else if ( x > y ) {
-    alert(`max(${x}, ${y}) = ${x}`);
-}else if ( x == y ) {
-    alert ( "You wrote down equal numbers!")
-} else {
-    alert(`max(${x}, ${y}) = ${y}`);
+buttonMax.addEventListener( 'click', getMax);
+
+function getMax(){
+    let x = Number(number1.value);
+    let y = Number(number2.value);
+    if (x > y ) {
+        maxContainer.innerText = `max(${x}, ${y}) = ${x}`;
+    }else if (x == y) {
+        maxContainer.innerText =  "You wrote down equal numbers!"
+    } else {
+        maxContainer.innerText = `max(${x}, ${y}) = ${y}`;
+    }
 }
+
 // Variant 2
 console.log('=========================Task 1 Variant 2=========================');
-const maxContainer = document.getElementById('max-container');
-let max = Math.max(x, y);
-maxContainer.innerHTML = `<h3> Max(${x}, ${y}) = ${max} </h3>`;
+
+const buttonMax2 = document.getElementById('btn-max-2');
+
+buttonMax2.addEventListener('click', getMax2);
+
+function getMax2() {
+    let x = Number(number1.value);
+    let y = Number(number2.value);
+    let max = Math.max(x, y);
+    maxContainer.innerHTML = `<h3> Max(${x}, ${y}) = ${max} </h3>`;
+}
+
 
 
 // Task 2
 console.log('=========================Task 2=========================');
 
 const apartment = document.getElementById('apartment');
-let room = Number(window.prompt('Please, enter the number of your apartment'));
+const room = document.querySelector('.room');
+const btnApartment = document.getElementById('btn-apartment');
 
-if ( room >= 1 && room <= 20) {
-   setApartmentInnerText(room, 'first');
-} else if (room <= 48) {
-    setApartmentInnerText(room, 'second');
-} else if (room <= 90) {
-    setApartmentInnerText(room, 'third');
-} else {
-    apartment.innerText = "You are living in another house"
+btnApartment.addEventListener('click', findEntrance);
+
+function findEntrance() {
+    let r = Number(room.value);
+    if ( r >= 1 && r <= 20) {
+        setApartmentInnerText(r, 'first');
+     } else if (r <= 48) {
+         setApartmentInnerText(r, 'second');
+     } else if (r <= 90) {
+         setApartmentInnerText(r, 'third');
+     } else {
+         apartment.innerText = "You are living in another house"
+     }
 }
 
-function setApartmentInnerText(room, entrance) {
-    apartment.innerText = `Your apartment ${room} is in the ${entrance} entrance`
+function setApartmentInnerText(roomNumber, entrance) {
+    apartment.innerText = `Your apartment ${roomNumber} is in the ${entrance} entrance`
 }
 
 // Task 3
 console.log('=========================Task 3=========================');
 
-let number = Number(window.prompt('Write down a number'));
-let result = (number == 10) ? alert('True'): alert('False');
+const yourNumber = document.querySelector('.numb');
+const btnNumb = document.getElementById('btn-numb');
+const numbContainer = document.getElementById('numb-container');
+
+btnNumb.addEventListener('click', checkNumb);
+
+function checkNumb() {
+   let n = Number(yourNumber.value);
+   (n == 10) ? numbContainer.innerText ='True': numbContainer.innerText ='False';
+}
+
 
 // Task 4
 console.log('=========================Task 4=========================');
@@ -79,28 +110,35 @@ if ( temperature.includes("+") && (Number(temperature) >=10 && Number(temperatur
 // Task 6
 console.log('=========================Task 6=========================');
 
-const giftContainer = document.getElementById('gift');
-let gift = Number(window.prompt('Write down a number of gift'));
+const giftNumber = document.querySelector('.gift');
+const giftBtn = document.getElementById('btn-gift');
+const giftContainer = document.getElementById('gift-text');
 
-switch(gift) {
-    case 1: 
-       setGiftDescription("car");
-       break;
-    case 2: 
-       setGiftDescription("motorcycle");
-       break;
-    case 3: 
-      setGiftDescription("phone");
-      break;
-    case 4: 
-      setGiftDescription("trip");
-      break;
-    case 5: 
-      setGiftDescription("10 000 USD");
-      break;
-    default: 
-       giftContainer.innerText = 'You have just written the wrong number';
-       break;
+giftBtn.addEventListener('click', setGift);
+
+function setGift() {
+    let gift = Number(giftNumber.value);
+    switch(gift) {
+        case 1: 
+           setGiftDescription("car");
+           break;
+        case 2: 
+           setGiftDescription("motorcycle");
+           break;
+        case 3: 
+          setGiftDescription("phone");
+          break;
+        case 4: 
+          setGiftDescription("trip");
+          break;
+        case 5: 
+          setGiftDescription("10 000 USD");
+          break;
+        default: 
+           giftContainer.innerText = 'You have just written the wrong number';
+           break;
+    }
+
 }
 
 function setGiftDescription(present) {
