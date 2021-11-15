@@ -5,6 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson 2 Classwork</title>
+    <style>
+        button {
+            display: block;  
+            padding: 5px;
+            margin-top: 10px; 
+            background-color: crimson;
+        }
+        div {
+            padding: 10px; 
+            background-color: #000; 
+            color: #fff; 
+            margin: 5px;
+
+        }
+    </style>
 </head>
 <body>
     <form action="#">
@@ -12,28 +27,28 @@
          <input type="number" name="max" value="10" class="number1">
          <p>Write down a number</p>
          <input type="number" name="max" value="1"  class="number2">
-         <button  type="button" style="display: block;  padding: 5px; margin-top: 10px; background-color: crimson;" id="btn-max">Find out max of this numbers</button>
-         <button  type="button" style="display: block;  padding: 5px; margin-top: 10px; background-color: crimson;" id="btn-max-2">Find out max of this numbers Ver 2</button>
-        <div style="padding: 10px; background-color: #000; color: #fff; margin: 5px;" id="max-container"></div>
+         <button  type="button"  id="btn-max">Find out max of this numbers</button>
+         <button  type="button" id="btn-max-2">Find out max of this numbers Ver 2</button>
+        <div id="max-container"></div>
 
         <p>Please, enter the number of your apartment</p>
         <input type="number" name="room" value="47" min="1" class="room">
-        <button  type="button" style="display: block;  padding: 5px; margin-top: 10px; background-color: crimson;" id="btn-apartment">Find out your entrance</button>
-        <div  style="padding: 10px; background-color: #000; color: #fff; margin: 5px;" id="apartment"></div>
+        <button  type="button"id="btn-apartment">Find out your entrance</button>
+        <div  id="apartment"></div>
 
         <p>Write down some number</p>
         <input type="number" name="numb" value="1"  class="numb">
-        <button  type="button" style="display: block;  padding: 5px; margin-top: 10px; background-color: crimson;" id="btn-numb">Check your number</button>
-        <div style="padding: 10px; background-color: #000; color: #fff; margin: 5px;" id="numb-container"></div>
+        <button  type="button" id="btn-numb">Check your number</button>
+        <div ></div>
 
-        <div  style="padding: 10px; background-color: #000; color: #fff; margin: 5px;" id="variable"></div>
+        <div id="variable"></div>
 
-        <div style="padding: 10px; background-color: #000; color: #fff; text-align: center; margin: 5px;" id="temperature"></div>
+        <div  id="temperature"></div>
 
         <p>Write down a number of gift</p>
         <input type="number" name="numb" value="1" min="1" class="gift">
-        <button  type="button" style="display: block;  padding: 5px; margin-top: 10px; background-color: crimson;" id="btn-gift">Check your gift</button>
-        <div style="padding: 10px; background-color: #000; color: #fff; text-align: center; margin: 5px;" id="gift-text"></div>
+        <button id="btn-gift">Check your gift</button>
+        <div id="gift-text"></div>
     </form>
   
     <script src="script.js"></script>
