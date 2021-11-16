@@ -61,11 +61,11 @@ let simpsons = [
 </div> */}
 
 
-document.write('<div>'); 
+document.write('<div class"container-1">'); 
 
 for(let i = 0; i < simpsons.length; i++){
     document.write('<h2 class="title">');
-    document.write(simpsons[i].name + ' ' + simpsons[i].surname + '.' + 'Age is -' + ' ' + simpsons[i].age);
+    document.write(simpsons[i].name + ' ' + simpsons[i].surname + '.' + ' ' +  'Age is ' + ' ' + simpsons[i].age);
     document.write('</h2>');
 
     document.write('<p class="info">');
@@ -93,13 +93,63 @@ document.write('<div class="wrapper">');
 for(let i = 0; i < simpsons.length; i++){
     document.write('<div class="item">'); 
     document.write('<h2>');
-    document.write(simpsons[i].name + ' ' + simpsons[i].surname + '.' + 'Age is -' + ' ' + simpsons[i].age);
+    document.write(simpsons[i].name + ' ' + simpsons[i].surname + '.' + '<br>' +  'Age is ' + ' ' + simpsons[i].age);
     document.write('</h2>');
 
     document.write('<p class="item-info">');
     document.write(simpsons[i].info);
     document.write('</p>');
     document.write(`<img src=${simpsons[i].photo} alt=${simpsons[i].name} class="item-img">`)
+    document.write('</div>'); 
+}
+
+document.write('</div>'); 
+
+
+// Task 3.1
+
+console.log('=========================Task 3.1 =========================');
+
+let products = [
+    {
+        title: 'milk',
+        price: 22,
+        image: 'https://www.mcqueensdairies.co.uk/wp-content/uploads/2019/02/Mcqueens_1litre_whole_organic-300x300-3.jpg'
+    },
+    {
+        title: 'juice',
+        price: 27,
+        image: 'https://images-na.ssl-images-amazon.com/images/I/61jL2GCuKLL._SX679_PIbundle-24,TopRight,0,0_AA679SH20_.jpg'
+    },
+    {
+        title: 'tomato',
+        price: 47,
+        image: 'https://dictionary.cambridge.org/ru/images/thumb/tomato_noun_001_17860.jpg?version=5.0.74'
+    },
+    {
+        title: 'tea',
+        price: 15,
+        image: 'https://yogiproducts.com/wp-content/uploads/2009/03/YT-US-CAR-RelaxedMind-C23-202201-V2-3DFront_withGlow-300DPI-1.png'
+    },
+];
+
+{/* <div>
+<div class="product-card">
+    <h3 class="product-title">TITLE. Price - PRICE</h3>
+    <img src="" alt="" class="product-image">
+</div>
+
+</div> */}
+
+document.write('<div class="product-container">'); 
+
+for(product of products){
+    document.write('<div class="product-card">'); 
+
+    document.write('<h3 class="product-title">');
+    document.write(product.title + '.' + '<br> ' + 'Price' + '-' + product.price);
+    document.write('</h3>');
+    document.write(`<img src=${product.image} alt=${product.title} class="product-image">`)
     document.write('</div>'); 
 }
 
