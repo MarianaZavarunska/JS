@@ -9,8 +9,9 @@
 }
 
 /* Task 2.2 */
-.container-1{
-    border: 1px solid black;
+.container{
+    border: 1px solid green;
+    padding: 20px;
     margin: 5px;
 }
 .info{

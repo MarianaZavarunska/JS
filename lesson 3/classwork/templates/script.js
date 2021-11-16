@@ -61,7 +61,7 @@ let simpsons = [
 </div> */}
 
 
-document.write('<div class"container-1">'); 
+document.write('<div class="container">'); 
 
 for(let i = 0; i < simpsons.length; i++){
     document.write('<h2 class="title">');
