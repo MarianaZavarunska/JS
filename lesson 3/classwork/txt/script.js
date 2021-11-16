@@ -58,29 +58,28 @@ console.log(odds);
  console.log('=========================Task 5 =========================');
 
 j = 0; 
-odds = [];
+let even = [];
 
  while( j < numbers.length) {
-    if( j % 2 == 0 ){
-       odds.push(numbers[j]);
+    if( numbers[j] % 2 == 0 ){
+       even.push(numbers[j]);
     }
     j++;
  }
  console.log(numbers);
- console.log(odds);
+ console.log(even);
 
 // Task 6
 console.log('=========================Task 6 =========================');
-
-odds = [];
+even = [];
 
 for(let i = 0; i < numbers.length; i++) { 
-    if( i % 2 == 0 ){
-        odds.push(numbers[i]);
+    if( numbers[i] % 2 == 0 ){
+        even.push(numbers[i]);
      }
 } 
 console.log(numbers);
-console.log(odds);
+console.log(even);
 
 // Task 6
 console.log('=========================Task 7 =========================');
