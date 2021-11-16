@@ -83,7 +83,7 @@ console.log(numbers);
 console.log(odds);
 
 // Task 6
-console.log('=========================Task 6 =========================');
+console.log('=========================Task 7 =========================');
 
 for (let i = 0; i < numbers.length; i++) {
     if (numbers[i] % 3 === 0) {
@@ -93,7 +93,7 @@ for (let i = 0; i < numbers.length; i++) {
 console.log(numbers);
 
 // Task 7
-console.log('=========================Task 7 =========================');
+console.log('=========================Task 8 =========================');
 
 odds = [];
 for( let i = numbers.length - 1; i >= 0; i--){
