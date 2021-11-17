@@ -100,14 +100,6 @@ for( i = 0; i < 10; i++){
 }
 console.log(numb);
 
-// numb.forEach( e => setArray(e));
-
-// function setArray(a){
-//     return a * 5;
-// }
-
-// console.log(numb); 
-
 let newNumb = [];
 for(i = 0; i < numb.length; i++){
     numb[i] *= 5;
@@ -144,6 +136,20 @@ let citiesWithId = [
     {user_id: 4, country: 'USA', city: 'Miami'}
 ];
 
+let users =[];
+
+for( i = 0; i < usersWithId.length; i++){
+    for(j = 0; j< citiesWithId.length; j++){
+        if(usersWithId[i].id === citiesWithId[j].user_id){
+            let res = usersWithId[i];
+            res.address = citiesWithId[j];
+            users.push(res);
+          }
+        }
+    }
+
+console.log(users);
+
 // Task 10
 console.log('=========================Task 10=========================');
 
@@ -179,12 +185,20 @@ console.log(word);
 // Task 13
 console.log('=========================Task 13=========================');
 
-debugger
 word = '';
 let k = 0;
 while(k < letters.length){
-    word +=letters[i];
+    word +=letters[k];
     k++;
+}
+console.log(word);
+
+// Task 14
+console.log('=========================Task 14=========================');
+
+word = '';
+for ( letter of letters) {
+    word +=letter;
 }
 console.log(word);
 
