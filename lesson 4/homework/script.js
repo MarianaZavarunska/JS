@@ -101,3 +101,36 @@ function createListOfArrayElement(friends){
 
 }
  
+ // Task 9
+ console.log('=========================Task 9========================='); 
+
+ let users = [];
+
+ fillArray();
+ function fillArray() {
+     for (let i = 0; i < 10; i++) {
+         
+        // let obj = {};
+        //  obj['id'] = i;
+        //  obj['name'] = i;
+        //  obj['age'] = i + 10;
+        
+        // let obj = {
+        //     'id' : i,
+        //     'name' : 'name ' + i,
+        //     'age' : i + 10
+        // };
+        
+        //  users.push(obj);
+        
+        users.push({'id': i, 'name': 'name ' + i, 'age': i + 10});
+     }
+ }
+
+ function showArrayOfObjects(users){
+    for (let user of users) {
+        document.write(`<div class="users"> id: ${user.id}; name: ${user.name}; age: ${user.age}</div>`);
+    }
+}
+
+showArrayOfObjects(users);
