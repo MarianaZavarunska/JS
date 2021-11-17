@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 4 Homework</title>
+    
+    <style>
+        .friends-container, .actors{
+          background-color: rgba(219, 217, 217, 0.5);
+          padding: 10px;
+          margin: 10px;
+        }
+        .info{
+            color: rgba(76, 74, 170, 0.9);
+        }
+        .friends-container li, .actors li, .info{
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin: 10px 20px 10px;
+        }
+        .friends-container li, .actors li{
+            color: rgb(165, 164, 231);
+            animation: txt 3s linear infinite ;
+            transition: all 2s ease;
+        }
+
+        @keyframes txt{
+            0% {
+                color: rgb(209, 208, 236);
+                letter-spacing: 2px;
+                transform: scaleY(0);
+            }
+            100%{
+                color: rgba(76, 74, 170, 0.9);
+                letter-spacing: 3px;
+                transform: scaleY(1);
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+    <script src="script.js"></script>
+</body>
+</html>
