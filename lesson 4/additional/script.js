@@ -64,6 +64,16 @@ function showKeyOfArray(array){
    }
 }
 
+// Variant 2
+
+// function showKeyOfArray(array){
+//     for( let el of array){
+//       for ( let key in el){
+//           keys.push(key);
+//       }
+//     }
+//  }
+
 // Task 4
 console.log('=========================Task 4=========================');
 
@@ -84,3 +94,14 @@ function showValueOfArray(user){
      });
    }
 }
+
+// Variant 2
+
+// function showValueOfArray(user){
+//     for( let el of user){
+//       for ( let key in el){
+//           values.push(el[key]);
+//       }
+//     }
+//  }
+
