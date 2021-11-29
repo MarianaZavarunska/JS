@@ -72,8 +72,12 @@ console.log('=========================Task 6=========================');
 //     let str = 'Каждый охотник желает знать';
 //     document.writeln(delete_characters(str, 7)); // Каждый
 
+let substring = (string,long) => string.substring(0,long);
+console.log(substring(str,7));
+
+// =========================
+
 let among = Math.ceil(Math.random() * 20);
- 
 function showSubstring() {
     if ( among > 0 && among < str.length){
     let substring = str.substring(0,among);
@@ -81,8 +85,8 @@ function showSubstring() {
     } 
 }
 
-let substring = showSubstring();
-console.log(substring);
+let substringNew = showSubstring();
+console.log(substringNew);
 
 
 // Task 7
