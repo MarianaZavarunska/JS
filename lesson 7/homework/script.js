@@ -115,4 +115,3 @@ showTaskLabel(5);
 let sortedByOrders = clients.sort((client1,client2) => client2.order.length - client1.order.length );
 
 console.log(sortedByOrders);
-
