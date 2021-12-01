@@ -90,24 +90,24 @@ for (let a of links) {
 showTaskLabel('i');
 // i) отримує всі елементи 'sub-header' та змінює колір фону. Фон отримати з prompt()
 
-// const h3 = document.getElementsByClassName('sub-header');
-// let color = window.prompt('Please, enter a color of chapters!');
+const h3 = document.getElementsByClassName('sub-header');
+let color = window.prompt('Please, enter a color of chapters!');
 
-// for(let item of h3){
-//     item.style.color = color;
-// }
+for(let item of h3){
+    item.style.color = color;
+}
 
 //===========================Task j===========================
 showTaskLabel('j');
 // j) отримує всі елементи 'sub-header' та змінює колір тексту у видаку якщо текст елемнту = content 2 segment . Колір отримати з prompt()
 
-// let color2 = window.prompt('Please, enter a color of chapters!');
+let color2 = window.prompt('Please, enter a color of chapters!');
 
-// for (let item of h3) {
-//     if (item.innerText === 'content 2 segment') {
-//         item.style.color = color2;
-//     }
-// }
+for (let item of h3) {
+    if (item.innerText === 'content 2 segment') {
+        item.style.color = color2;
+    }
+}
 
 //===========================Task k===========================
 showTaskLabel('k');
@@ -116,8 +116,41 @@ showTaskLabel('k');
 
 let text = window.prompt('Please, enter text for chapter!');
 
-const content_1 = document.getElementsByClassName('content_1');
+const content_1 = document.querySelector('.content_1');
 
-content_1.innerHTML = text;
+// if(content_1.children){
+//     content_1.children[0].innerText = text;
+// }
 
-// INCLUDES
+function replaceText(element){
+
+    if(element.children.length){
+
+        for (const child of element.children) {
+            replaceText(child); 
+        }
+       
+    }else{
+        element.innerText = text; 
+    }
+}
+
+replaceText(content_1);
+
+//===========================Task l===========================
+showTaskLabel('l');
+// l) отримати елементи p та змінити їм padding на 20px
+
+const paragraphs = document.querySelectorAll('p');
+
+paragraphs.forEach((paragraph) => paragraph.style.padding = '20px');
+
+//===========================Task m===========================
+showTaskLabel('m');
+// m) отримати елементu з класом text2 та змінити їм текст на назву групи (mon-year. Пример sep-2021)
+
+const paragraphs2 = document.querySelectorAll('.text2');
+
+paragraphs2.forEach((paragraph) => paragraph.innerText = 'sep-2021');
+
+// але на сторінці один р з класом text2, тому можна було доступитись тільки до нього
