@@ -95,3 +95,25 @@ console.log(employee);
 //         ]
 
 //    }
+class Attribute{
+
+    constructor(attribute,description){
+        this.attribute = attribute;
+        this.description = description;
+    }
+}
+
+class Tag {
+
+    constructor(name,action,attribute1,description1,attribute2,description2,attribute3,description3) {
+        this.name = name;
+        this.action = action;
+        this.attribute = [new Attribute(attribute1,description1), new Attribute(attribute2,description2), new Attribute(attribute3,description3)];
+    }
+}
+
+let form = new Tag('form','Створює форму на сторінці і відправляє дані із заповненої форми', 'action', 'вказує шлях відправлення даних','name', 'визначає імья форми', 'method', 'визначає, який HTTP method використовувати при надсиланні форми(POST - приховує дані, які надсилає)');
+console.log(form);
+
+let select = new Tag('select', 'Створює випадаючий список','name', 'Визначає імя випадаючого списка', 'required', 'вказує, що обовьязкого потрібно зробити вибір', 'disabled', 'неможливо зробити вибір');
+console.log(select);
