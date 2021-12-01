@@ -63,6 +63,8 @@ let employee = new Employee(1,'Leanne Graham','Bret','Sincere@april.biz','Kulas 
 console.log(employee);
 
 
+//===========================Task 2===========================
+showTaskLabel(2);
 
 // -  Створити функцію конструктор / клас  який описує об'єкт тегу
 // Поля :
