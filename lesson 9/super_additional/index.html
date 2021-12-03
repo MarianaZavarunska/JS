@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 9 Super Additional</title>
+
+    <style>
+        .rule-container {
+            padding: 10px;
+        }
+
+        .rule-container > div:first-child {
+            font-size: 1.3rem;
+            font-weight: bold;
+            position: relative;
+            margin-left: 5px;
+        }
+        .rule-container > div:first-child::before{
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid rgb(196, 58, 58);
+        }
+
+        .rule-container > div:nth-child(2) {
+            color: rgb(196, 58, 58);
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .rule-container>div:nth-child(3) {
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content"></div>
+    <h1>Правила бойцовского клуба</h1>
+    <div id="wrap">
+        <div class="rules rule1">
+            <h2>Первое правило Бойцовского клуба.</h2>
+            <p>Никому не рассказывать о Бойцовском клубе.</p>
+        </div>
+        <div class="rules rule2">
+            <h2>Второе правило Бойцовского клуба.</h2>
+            <p>Никогда никому не рассказывать о Бойцовском клубе.</p>
+        </div>
+        <div class="rules rule3">
+            <h2>Третье правило Бойцовского клуба.</h2>
+            <p>В схватке участвуют только двое.</p>
+        </div>
+        <div class="rules rule4">
+            <h2>Четвертое правило Бойцовского клуба.</h2>
+            <p>Не более одного поединка за один раз.</p>
+        </div>
+
+        <div class="rules rule5">
+            <h2>Пятое правило Бойцовского клуба.</h2>
+            <p>Бойцы сражаются без обуви и голые по пояс.</p>
+        </div>
+        <div class="rules rule6">
+            <h2>Шестое правило Бойцовского клуба.</h2>
+            <p>Поединок продолжается столько, сколько потребуется.</p>
+        </div>
+        <div class="rules rule7">
+            <h2>Седьмое правило Бойцовского клуба.</h2>
+            <p>Если противник потерял сознание или делает вид, что потерял, или говорит «Хватит» — поединок
+                окончен.</p>
+        </div>
+        <div class="rules rule8">
+            <h2>Восьмое и последнее правило Бойцовского клуба.</h2>
+            <p>Новичок обязан принять бой.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
