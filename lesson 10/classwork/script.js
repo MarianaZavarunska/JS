@@ -47,7 +47,7 @@ for (let i = 1; i < 4; i++) {
     }
 
     container.appendChild(input);
-}
+};
 
 container.appendChild(buttonTable);
 document.body.appendChild(container);
@@ -71,7 +71,8 @@ buttonTable.addEventListener('click', () => {
     };
 
     document.body.appendChild(table);
-});
+
+}, { "once": true});
 
 
 //===========================Task 3===========================
@@ -105,7 +106,7 @@ function checkWords() {
             alert('Please, enter good word!');
         }
     }
-}
+};
 
 //===========================Task 4===========================
 showTaskLabel(4);
@@ -129,5 +130,5 @@ checkSentenceBtn.addEventListener('click', () => {
         };
     }
 
-})
+});
 
