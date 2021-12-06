@@ -72,7 +72,16 @@ buttonTable.addEventListener('click', () => {
 
     document.body.appendChild(table);
 
-}, { "once": true});
+}, 
+// { "once": true}
+);
+
+let allInputWithTypeNumber = document.querySelectorAll('[type=number]');
+console.log(allInputWithTypeNumber);
+
+allInputWithTypeNumber.forEach(input => {
+    input.min = '1';
+});
 
 
 //===========================Task 3===========================
