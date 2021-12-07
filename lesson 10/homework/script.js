@@ -76,16 +76,19 @@ showTaskLabel(4);
 // - Создайте меню, которое раскрывается/сворачивается при клике
 
 let wrapper = document.createElement('div');
-let burgerMenu = document.createElement('div');
+let dropdownMenu = document.createElement('div');
 
-burgerMenu.innerText = 'MENU';
-burgerMenu.classList.add('burger-menu');
+dropdownMenu.innerText = 'MENU';
+dropdownMenu.classList.add('dropdown-btn');
 
-wrapper.appendChild(burgerMenu);
+wrapper.appendChild(dropdownMenu);
 
-burgerMenu.addEventListener('click', () => { unOrderedList.classList.toggle('dropdown') });
+
 
 let unOrderedList = document.createElement('ul');
+unOrderedList.classList.add('dropdown-menu');
+unOrderedList.classList.add('dropdown');
+
 let menu = ['Home', 'Main', 'About', 'Contact'];
 
 for (let item of menu) {
@@ -97,6 +100,24 @@ for (let item of menu) {
 
 wrapper.appendChild(unOrderedList);
 document.body.appendChild(wrapper);
+
+
+document.addEventListener('click', (e) => { 
+    if(e.target.className ==='dropdown-btn'){
+        unOrderedList.classList.toggle('dropdown');
+    }
+    if(e.target.className !== 'dropdown-menu' && e.target.className !=='dropdown-btn'){
+       unOrderedList.classList.add('dropdown');
+    }
+});
+
+document.addEventListener('keyup', (e) => {
+    if(e.code === 'Escape'){
+        unOrderedList.classList.add('dropdown');
+    }
+})
+
+
 
 //===========================Task 5===========================
 showTaskLabel(5);
@@ -121,10 +142,12 @@ let comments = [
 
 for (let comment of comments) {
     let commentContainer = document.createElement('div');
-    commentContainer.style.backgroundColor = 'black';
-    commentContainer.style.color = '#fff';
-    commentContainer.style.paddingBottom = '5px';
-    commentContainer.style.marginBottom = '10px';
+    commentContainer.style.cssText = "background-color: black; color: #fff; padding-bottom: 5px; margin-bottom: 10px;";
+
+    // commentContainer.style.backgroundColor = 'black';
+    // commentContainer.style.color = '#fff';
+    // commentContainer.style.paddingBottom = '5px';
+    // commentContainer.style.marginBottom = '10px';
 
     let buttonComment = document.createElement('div');
     buttonComment.classList.add('button-comment');
