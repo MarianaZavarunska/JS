@@ -1,0 +1,17 @@
+.targetArea{
+    background-color: aquamarine;
+    width: 100px;
+    height: 200px;
+}
+
+#pop-up{
+    display: none;
+}
+
+#pop-up.active{
+    position: absolute;
+    display: block;
+    width: 300px;
+    background-color: lightblue;
+    z-index: 1;
+}
