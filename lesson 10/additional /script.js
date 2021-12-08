@@ -275,3 +275,27 @@ function navigatArray() {
 }
 
 navigatArray();
+
+//===========================Task 6===========================
+showTaskLabel(6);
+// Завдання важке для розуміння, але дуже легке в реалізації. Тут треба буде погуглити
+// *** При виділені сегменту тексту на сторінці він стає жирний/курсивний/або якось іншим способом змінює свій стан
+
+function getSelectionText() {
+
+    let text = "";
+    if (window.getSelection) {
+        text = window.getSelection().toString();
+    } else if (document.selection && document.selection.type != "Control") {
+        text = document.selection.createRange().text;
+    }
+    return text;
+}
+
+const block = document.getElementById('selection-area');
+
+block.onmouseup = () => {
+    let selected = getSelectionText();
+    let selectedBold = `<b>${selected}</b>`;
+    block.innerHTML = block.innerText.replace(`${selected}`, `${selectedBold}`);
+}
