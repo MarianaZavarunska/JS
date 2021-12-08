@@ -44,7 +44,7 @@ form > div{
 .users-info3.active{
     position: absolute;
     display: block;
-    top: 50%;
+    top: 35%;
     transform: translate(-50%,0);
     width: 200px;
     background-color: rgb(247, 247, 247);
