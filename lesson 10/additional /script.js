@@ -7,13 +7,14 @@ showTaskLabel(1);
 // При лівому кліку миші вивести в консоль інформацію про блок або елемент на який відбувся клік.
 // Інформація яку потрібно вивести: Назва тегу, список класів, список ід, розміри в форматі висота*ширина
 
+const container = document.getElementById('container');
 
-document.addEventListener('mousedown', function (e) {
+container.addEventListener('mousedown', function (e) {
     if (e.which === 1) {
-        console.log(`Назва тегу - ${e.target.tagName}`);
-        console.log(`Список класів - ${e.target.className}`);
-        console.log(`Список id - ${e.target.id}`);
-        console.log(`${e.target.clientHeight} X ${e.target.clientWidth}`);
+        console.log(`Tag - ${e.target.tagName}`);
+        console.log(`Classes- ${e.target.className}`);
+        console.log(`Id - ${e.target.id}`);
+        console.log(`Height x Width: ${e.target.clientHeight} X ${e.target.clientWidth}`);
     }
 });
 
@@ -26,7 +27,9 @@ showTaskLabel(2);
 
 const popUpBlock = document.getElementById('pop-up');
 
-document.addEventListener('mousedown', function (e) {
+
+container.addEventListener('mousedown', function (e) {
+
     if (e.which === 1) {
         popUpBlock.classList.add('active');
         popUpBlock.style.top = `${e.clientY}px`;
@@ -34,10 +37,10 @@ document.addEventListener('mousedown', function (e) {
 
         let properties =
             [
-                `Назва тегу - ${e.target.tagName}`,
-                `Список класів - ${e.target.className}`,
-                `Список id - ${e.target.id}`,
-                `${e.target.clientHeight} X ${e.target.clientWidth}`
+                `Tag- ${e.target.tagName}`,
+                `Classes - ${e.target.className}`,
+                `Id- ${e.target.id}`,
+                `Height x Width: ${e.target.clientHeight} X ${e.target.clientWidth}`
             ]
 
         let unOrderedList = document.createElement('ul');
@@ -76,7 +79,7 @@ showTaskLabel(3);
 // 1й - отфильтровывает пользователей со статусом false (осталяет со статусом false)
 // 2й - оставляет старше 29 лет включительно
 // 3й - оставляет тех у кого город киев
-// Данные выводить в документ
+
 
 let usersWithAddress = [
     { id: 1, name: 'vasya', age: 31, status: false, address: { city: 'Lviv', street: 'Shevchenko', number: 16 } },
@@ -91,3 +94,184 @@ let usersWithAddress = [
     { id: 10, name: 'olya', age: 31, status: false, address: { city: 'Lviv', street: 'Shevchenko', number: 16 } },
     { id: 11, name: 'max', age: 31, status: true, address: { city: 'Ternopil', street: 'Shevchenko', number: 121 } }
 ];
+
+//filter status 
+
+const statusFilter = document.getElementById('status');
+
+statusFilter.addEventListener('click', (e) => {
+
+    if (e.target.checked) {
+        let infoList1 = document.createElement('ul');
+        infoList1.classList.add('users-info1');
+
+        let filteredByStatus = usersWithAddress.filter(user => user.status === false);
+        filteredByStatus.forEach((user) => {
+            let list = document.createElement('li');
+
+            // for (const key in user) {
+            //     if(typeof user[key] === 'object' && user[key] !== null){
+            //         for(const item in user[key]){
+            //             list.innerHTML += `${item}: ${user[key][item]}</br> `;
+            //         }
+            //     } else {
+            //         list.innerHTML += `${key}: ${user[key]}</br> `;
+            //     }
+            // }
+            getUserInfo(user, list);
+
+            infoList1.appendChild(list);
+
+        });
+        infoList1.classList.add('active');
+
+        document.body.appendChild(infoList1);
+    } else {
+        let ul = document.querySelector('.users-info1');
+        ul.remove();
+    }
+})
+
+//filter age
+const ageFilter = document.getElementById('age');
+
+ageFilter.addEventListener('click', (e) => {
+
+    if (e.target.checked) {
+        let infoList2 = document.createElement('ul');
+        infoList2.classList.add('users-info2');
+
+        let filteredByAge = usersWithAddress.filter(user => user.age >= 29);
+        filteredByAge.forEach((user) => {
+            let list2 = document.createElement('li');
+
+
+            getUserInfo(user, list2);
+
+            infoList2.appendChild(list2);
+
+        });
+
+        infoList2.classList.add('active');
+
+        document.body.appendChild(infoList2);
+    } else {
+        let ul = document.querySelector('.users-info2');
+        ul.remove();
+    }
+});
+
+//filter city
+
+const cityFilter = document.getElementById('city');
+
+cityFilter.addEventListener('click', (e) => {
+
+    if (e.target.checked) {
+        let infoList3 = document.createElement('ul');
+        infoList3.classList.add('users-info3');
+
+        let filteredByCity = usersWithAddress.filter(user => user.address.city === 'Kyiv');
+        filteredByCity.forEach((user) => {
+            let list3 = document.createElement('li');
+
+
+            getUserInfo(user, list3);
+
+            infoList3.appendChild(list3);
+
+        });
+
+        infoList3.classList.add('active');
+
+        document.body.appendChild(infoList3);
+    } else {
+        let ul = document.querySelector('.users-info3');
+        ul.remove();
+    }
+});
+
+function getUserInfo(user, list) {
+
+    for (const key in user) {
+        if (typeof user[key] === 'object' && user[key] !== null) {
+
+            getUserInfo(user[key], list);
+        } else {
+            list.innerHTML += `${key}: ${user[key]}</br> `;
+        }
+
+    }
+}
+
+//===========================Task 5===========================
+showTaskLabel(5);
+
+// - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
+
+const carouselContainer = document.querySelector('.carousel-container');
+const leftBtn = document.getElementById('left');
+const rightBtn = document.getElementById('right');
+const loader = document.querySelector('.loader');
+
+let arr = [
+    "https://images.unsplash.com/photo-1470549813517-2fa741d25c92?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHwxOTA3Mjd8fHx8fHx8MTYzODk2NjMwOA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+    "https://images.unsplash.com/31/RpgvvtYAQeqAIs1knERU_vegetables.jpg?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHwxOTA3Mjd8fHx8fHx8MTYzODk2NjM3MQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+    "https://images.unsplash.com/reserve/YFdIoUsRJCAehcoUnQaS_Straw.jpg?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHwxOTA3Mjd8fHx8fHx8MTYzODk2NjQwMw&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+    "https://images.unsplash.com/photo-1465014925804-7b9ede58d0d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHwxOTA3Mjd8fHx8fHx8MTYzODk2NjQyNg&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080"
+];
+
+let index = 0;
+
+
+
+window.onload = () => {
+    carouselContainer.style.backgroundImage = `url('${arr[index]}}')`;
+}
+
+// USING ASYNC/AWAIT
+async function generateBackground() {
+
+    const config = {
+        headers: {
+            Accept: 'application/json'
+        },
+    }
+
+    const res = await fetch('https://source.unsplash.com/collection/190727', config, { cache: "no-cache" });
+
+    arr.push(res.url);
+
+}
+
+
+function navigatArray() {
+    leftBtn.addEventListener('click', () => {
+        index--;
+
+        if (index < 0) {
+            index = 0;
+            return;
+        } else {
+            carouselContainer.style.backgroundImage = `url('${arr[index]}}')`;
+        }
+    }
+    )
+
+    rightBtn.addEventListener('click', async () => {
+        index++;
+        if (index === arr.length - 1) {
+
+            loader.style.display = 'block';
+            await generateBackground();
+            carouselContainer.style.backgroundImage = `url('${arr[index]}}')`
+            loader.style.display = 'none';
+        } else {
+            carouselContainer.style.backgroundImage = `url('${arr[index]}}')`;
+        }
+
+    }
+    )
+}
+
+navigatArray();

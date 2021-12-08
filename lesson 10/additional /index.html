@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,13 +9,45 @@
     <title>Lesson 10 Additional</title>
 
 </head>
-<body>
-    <div class="targetArea block" id= 'target'>
-        text text
-    </div>
 
-    <div id="pop-up"></div>     
+<body>
+    <div id="container">
+        <div class="targetArea block" id='target'>
+            text text
+        </div>
+        <ul>
+            <li>text 1</li>
+            <li>text 2</li>
+            <li>text 3</li>
+        </ul>
+    
+        <div id="pop-up"></div>
+    </div>
+   
+
+    <form action="#">
+        <div>
+            <input type="checkbox" name="status" id="status">
+            <label for="status">Show users with status false.</label>
+        </div>
+        <div>
+            <input type="checkbox" name="age" id="age">
+            <label for="age">Show users who are older than 29.</label>
+        </div>
+        <div>
+            <input type="checkbox" name="city" id="city">
+            <label for="city">Show all users who have Kyiv city.</label>
+        </div>
+    </form>
+
+    <div class="carousel-container">
+        <button id="left"> < </button>
+        <button id="right"> > </button>
+        <div class="loader"></div>
+    </div>
+   
 
     <script src="script.js"></script>
 </body>
+
 </html>

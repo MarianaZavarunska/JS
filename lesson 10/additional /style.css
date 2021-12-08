@@ -1,7 +1,14 @@
 .targetArea{
-    background-color: aquamarine;
+    background-color: rgb(139, 219, 193);
     width: 100px;
     height: 200px;
+}
+
+#container{
+    background-color: rgb(201, 245, 221);
+}
+#container > ul {
+   background-color:rgb(90, 216, 176) ;
 }
 
 #pop-up{
@@ -12,6 +19,107 @@
     position: absolute;
     display: block;
     width: 300px;
-    background-color: lightblue;
+    background-color:#fff;
     z-index: 1;
 }
+
+form{
+    background-color: rgb(139, 219, 193);
+    max-width: 400px;
+    width: 100%;
+}
+
+form > div{
+    padding: 10px;
+    margin: 10px 0;
+}
+.users-info1,
+.users-info2,
+.users-info3{
+    display: none;
+}
+
+.users-info1.active,
+.users-info2.active,
+.users-info3.active{
+    position: absolute;
+    display: block;
+    top: 50%;
+    transform: translate(-50%,0);
+    width: 200px;
+    background-color: rgb(247, 247, 247);
+    border: 1px solid black;
+    z-index: 1;
+}
+.users-info1.active{
+    left: 50%;
+}
+.users-info2.active{ 
+    left: 68%;
+}
+.users-info3.active{
+    left: 86%;
+}
+
+.users-info1.active > li,
+.users-info2.active > li,
+.users-info3.active > li{
+    border-bottom: 1px solid black;
+}
+
+.users-info1.active > li:last-of-type,
+.users-info2.active > li:last-of-type,
+.users-info3.active > li:last-of-type{
+    border-bottom: none;
+}
+
+.carousel-container{
+    max-width: 400px;
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+    background-color: azure;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 30px;
+}
+.carousel-container > button {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(143, 218, 172);
+}
+#left {
+    left: -10%;
+}
+
+#right{
+    right: -10%;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    border-radius: 50%;
+    border-top: 16px solid #34db7a;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    display: none;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
