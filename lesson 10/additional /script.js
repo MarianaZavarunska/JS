@@ -312,22 +312,24 @@ const resetBtn = document.getElementById('reset');
 
 block.addEventListener('pointerup', () => {
     let selected = getSelectionText();
+    let changedText = selected;
 
     if (cursiveBtn.checked) {
-        let selectedCursive = `<i>${selected}</i>`;
-        block.innerHTML = block.innerText.replace(`${selected}`, `${selectedCursive}`);
+        changedText = `<i>${changedText}</i>`;
 
     };
     if(boldBtn.checked) {
-        let selectedBold = `<b>${selected}</b>`;
-        block.innerHTML = block.innerText.replace(`${selected}`, `${selectedBold}`);
+        changedText = `<b>${changedText}</b>`;
 
     };
     if (yellowBtn.checked) {
-        let selectedYellow = `<mark>${selected}</mark>`;
-        block.innerHTML = block.innerText.replace(`${selected}`, `${selectedYellow}`);
+        changedText = `<mark>${changedText}</mark>`;
 
     };
+
+    if(cursiveBtn.checked || boldBtn.checked || yellowBtn.checked){
+        block.innerHTML = block.innerText.replace(`${selected}`, `${changedText}`);
+    }
     
 })
 
