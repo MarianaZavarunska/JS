@@ -20,4 +20,38 @@ btn.addEventListener('click', (e) => {
      localStorage.setItem('age',JSON.stringify(age));
    
 })
-// localStorage.clear();
+
+
+//===========================Task 2===========================
+showTaskLabel(2);
+
+// -створити форму з інпутами для model,type та volume автівки.
+// при відпарвці форми об'єкти зберігаються в масиві в локальному сховищі.
+
+const formCar = document.forms.car;
+const btnCar = document.getElementById('car-btn');
+
+let cars = [];
+
+btnCar.addEventListener('click', () => {
+    let model = formCar.elements.model.value;
+    let type = formCar.elements.type.value; 
+    let volume = formCar.elements.volume.value;
+
+    let car = { model, type, volume};
+    cars.push(car);
+    
+    if (localStorage.getItem('cars')){
+
+        let oldCar = localStorage.getItem('cars') ;
+        oldCar = JSON.parse(oldCar);
+        oldCar.push(car);
+
+        localStorage.setItem('cars', JSON.stringify(oldCar));
+    } else {
+        localStorage.setItem('cars', JSON.stringify(cars));
+    }
+    
+});
+
+
