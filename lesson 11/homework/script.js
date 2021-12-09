@@ -38,7 +38,11 @@ btnCar.addEventListener('click', () => {
     let type = formCar.elements.type.value; 
     let volume = formCar.elements.volume.value;
 
+    if(model === "" || type === "" || volume === "") {
+        return;
+    }
     let car = { model, type, volume};
+   
     cars.push(car);
     
     if (localStorage.getItem('cars')){
