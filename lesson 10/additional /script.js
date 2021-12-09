@@ -292,10 +292,57 @@ function getSelectionText() {
     return text;
 }
 
-const block = document.getElementById('selection-area');
+const blockSelected = document.getElementById('select-bold');
 
-block.onmouseup = () => {
+blockSelected.onmouseup = () => {
     let selected = getSelectionText();
     let selectedBold = `<b>${selected}</b>`;
-    block.innerHTML = block.innerText.replace(`${selected}`, `${selectedBold}`);
+    blockSelected.innerHTML = blockSelected.innerText.replace(`${selected}`, `${selectedBold}`);
 }
+
+
+// Radio-btns
+const block = document.getElementById('selection-area');
+
+const cursiveBtn = document.getElementById('cursive');
+const boldBtn = document.getElementById('bold');
+const yellowBtn = document.getElementById('yellow');
+const resetBtn = document.getElementById('reset');
+
+
+block.addEventListener('pointerup', () => {
+    let selected = getSelectionText();
+
+    if (cursiveBtn.checked) {
+        let selectedCursive = `<i>${selected}</i>`;
+        block.innerHTML = block.innerText.replace(`${selected}`, `${selectedCursive}`);
+
+    };
+    if(boldBtn.checked) {
+        let selectedBold = `<b>${selected}</b>`;
+        block.innerHTML = block.innerText.replace(`${selected}`, `${selectedBold}`);
+
+    };
+    if (yellowBtn.checked) {
+        let selectedYellow = `<mark>${selected}</mark>`;
+        block.innerHTML = block.innerText.replace(`${selected}`, `${selectedYellow}`);
+
+    };
+    
+})
+
+resetBtn.addEventListener('click', () => {
+
+    if (cursiveBtn.checked){
+        cursiveBtn.checked = !cursiveBtn.checked;
+    };
+    if(boldBtn.checked){
+        boldBtn.checked = !boldBtn.checked;
+    };
+    if (yellowBtn.checked) {
+        yellowBtn.checked = !yellowBtn.checked;
+    };
+    block.innerText = block.innerText;
+})
+
+
