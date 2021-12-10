@@ -16,9 +16,9 @@ btn.addEventListener('click', (e) => {
      let firstName = formInfo.elements.firstName.value;
      let age = formInfo.elements.age.value;
 
-     localStorage.setItem('firstName', JSON.stringify(firstName));
-     localStorage.setItem('age',JSON.stringify(age));
-   
+     let person = {firstName, age};
+     localStorage.setItem('person',JSON.stringify(person));
+    
 })
 
 
