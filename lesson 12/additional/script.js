@@ -20,14 +20,15 @@ fetch('https://jsonplaceholder.typicode.com/users')
                 if (key === 'address' || key === 'company') continue;
                 let propertyContainer = document.createElement('div');
 
-                propertyContainer.innerText = `${key}:` + ' ' + `${user[key]}`;
+                propertyContainer.innerHTML = `<b>${key}:</b>` + ' ' + `${user[key]}`;
                 userContainer.append(propertyContainer);
             }
 
-            let number = user['id'];
+            let userId = user['id'];
+
             postBtn.addEventListener('click', () => {
 
-                fetch(`https://jsonplaceholder.typicode.com/users/${number}/posts`)
+                fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
                     .then(posts => posts.json())
                     .then(posts => {
                         for (const post of posts) {
@@ -41,22 +42,26 @@ fetch('https://jsonplaceholder.typicode.com/users')
                                 if (key === 'userId' || key === 'id') continue;
 
                                 let propertyKeyContainer = document.createElement('div');
-                                propertyKeyContainer.innerText = `${key}:` + ' ' + `${post[key]}`;
+                                propertyKeyContainer.innerHTML = `<b>${key}:</b>` + ' ' + `${post[key]}`;
                                 postContainer.append(propertyKeyContainer);
                             }
+                            let postId = post['id'];
+                           
 
-                            // btnPostContent.addEventListener('click', () => {
-                            //     fetch(`https://jsonplaceholder.typicode.com/posts/${number}/comments`)
-                            //          .then(response => response.json())
-                            //          .then(response => {
-                            //              let postContent = document.createElement('div');
-                                        
-                            //             //  postContent.innerText = response[number]['body']
-
-                            //              postContainer.insertBefore(postContent, btnPostContent);
-                            //         }
-                            //     })
-                            // })
+                            btnPostContent.addEventListener('click', () => {
+                                fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
+                                     .then(comments => comments.json())
+                                     .then(comments => { 
+                                         let commentContainer = document.createElement('div');
+                                        commentContainer.classList.add('comment-container');
+                                        for (const comment of comments) {
+                                            commentContainer.innerHTML += `<b>name</b>: <mark>${comment['name']}</mark> </br> 
+                                         <b>email</b>: ${comment['email']}</br></br> <b>body</b>: ${comment['body']}</br></br>`;
+                                        }
+                                         postContainer.insertBefore(commentContainer, btnPostContent);
+                                    })
+                                    btnPostContent.disabled = true;
+                            });
 
                             postContainer.append(btnPostContent);
                             userContainer.insertBefore(postContainer, postBtn);
