@@ -37,11 +37,12 @@ fetch('https://jsonplaceholder.typicode.com/posts')
             document.body.append(divPost);
         }
 
+        
         const btns = document.getElementsByClassName('load-post');
 
         for (const btn of btns) {
             btn.addEventListener('click', () => {
-                
+
                 if(btn.parentElement.childElementCount === 5) return;
 
                 let number = btn.parentElement.querySelector('div[user-id]').getAttribute('user-id');
