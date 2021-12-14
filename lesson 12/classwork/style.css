@@ -20,7 +20,7 @@ body {
 .key-container{
     padding: 3px 7px;
 }
-#load-post{
+.load-post{
     width: 120px;
     align-self: flex-end;
     text-align: center;
@@ -31,11 +31,7 @@ body {
     letter-spacing: 1px;
     text-transform: uppercase;
 }
-.key-container:last-of-type{
-    letter-spacing: 2px;
-    display: none;
-}
-
-#post-content.active{
-    display: block;
+.post-content{
+    padding: 7px;
+    margin-top: 10px;
 }
