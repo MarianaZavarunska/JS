@@ -55,7 +55,7 @@ function showComments(comments) {
 
     for (const comment of comments) {
         let div = document.createElement('div');
-        div.classList.add('comment');
+        div.classList.add('comment-container');
 
         for (const key in comment) {
             let innerDiv = document.createElement('div');
@@ -66,7 +66,7 @@ function showComments(comments) {
             let spanValue = document.createElement('span');
             spanValue.innerText = comment[key];
             if(comment['postId']=== 1){
-                innerDiv.classList.add('comment-line');
+                innerDiv.classList.add('line-container');
             } 
             innerDiv.append(spanKey, spanValue);
             div.appendChild(innerDiv);

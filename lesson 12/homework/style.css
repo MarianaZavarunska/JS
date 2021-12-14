@@ -38,7 +38,7 @@ body{
     color: var(--primary-color);
     font-weight: 700;
 } 
-.comment-line:before{
+.line-container:before{
     content: '';
     position: absolute;
     background-color: var(--primary-color);
@@ -47,7 +47,7 @@ body{
     top: -15px;
     left: -18px;
 }
-.comment{
+.comment-container{
     position: relative;
     border: 1px solid black;
     box-shadow: 0px 5px 7px black;
