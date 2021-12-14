@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 260px;
+    border: 1px solid green;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.key-container{
+    padding: 5px;
+}
+#load-post{
+    width: 100px;
+    align-self: flex-end;
+    text-align: center;
+    background-color: green;
+    padding: 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.key-container:last-of-type{
+    letter-spacing: 2px;
+    display: none;
+}
+
+#post-content.active{
+    display: block;
+}
