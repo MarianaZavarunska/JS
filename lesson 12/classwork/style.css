@@ -7,14 +7,17 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 260px;
+    font-size: 1.1rem;
+    max-width: 260px;
+    width: 100%;
+    height: 200px;
     border: 1px solid green;
     margin: 10px;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .key-container{
-    padding: 5px;
+    padding: 3px;
 }
 #load-post{
     width: 100px;
