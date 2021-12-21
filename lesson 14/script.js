@@ -253,83 +253,151 @@
 
 //USING ASYNC/AWAIT
 
-let container = document.createElement('div');
-document.body.append(container);
+// let container = document.createElement('div');
+// document.body.append(container);
 
 
-async function getUp() {
-    setTimeout(() =>  {
-         container.innerHTML = `<h2>Good Morning</h2><video src="https://i.giphy.com/media/KNy9sP4auz6n45gsMQ/giphy360p.mp4" autoplay="" loop="" muted="" playsinline="" onerror="this.onerror=()=>{};this.src='https://i.giphy.com/KNy9sP4auz6n45gsMQ.mp4';">
-    <img src="https://i.giphy.com/KNy9sP4auz6n45gsMQ.gif " alt="">
-</video>`
-  }, 1000);
-}
+// async function getUp() {
+//     setTimeout(() =>  {
+//          container.innerHTML = `<h2>Good Morning</h2><video src="https://i.giphy.com/media/KNy9sP4auz6n45gsMQ/giphy360p.mp4" autoplay="" loop="" muted="" playsinline="" onerror="this.onerror=()=>{};this.src='https://i.giphy.com/KNy9sP4auz6n45gsMQ.mp4';">
+//     <img src="https://i.giphy.com/KNy9sP4auz6n45gsMQ.gif " alt="">
+// </video>`
+//   }, 1000);
+// }
 
-async function cookingBreakfast(){
-    setTimeout(() => {
-        container.innerHTML = `<h2>Breakfast</h2><video src="https://i.giphy.com/media/AHqBiauvJ6ZaPcQB0T/giphy360p.mp4" autoplay="" loop="" muted="" playsinline="" onerror="this.onerror=()=>{};this.src='https://i.giphy.com/AHqBiauvJ6ZaPcQB0T.mp4';">
-        <img src="https://i.giphy.com/AHqBiauvJ6ZaPcQB0T.gif " alt="">
-    </video>`;
-   }, 4000)
-}
+// async function cookingBreakfast(){
+//     setTimeout(() => {
+//         container.innerHTML = `<h2>Breakfast</h2><video src="https://i.giphy.com/media/AHqBiauvJ6ZaPcQB0T/giphy360p.mp4" autoplay="" loop="" muted="" playsinline="" onerror="this.onerror=()=>{};this.src='https://i.giphy.com/AHqBiauvJ6ZaPcQB0T.mp4';">
+//         <img src="https://i.giphy.com/AHqBiauvJ6ZaPcQB0T.gif " alt="">
+//     </video>`;
+//    }, 4000)
+// }
 
-async function sippingCoffee() {
-  setTimeout(() => {
-     container.innerHTML = `<h2>Coffee Time</h2><video src="https://i.giphy.com/media/Y0NhkIdyT3TVBDWLkG/giphy360p.mp4" autoplay="" loop="" muted="" playsinline="" onerror="this.onerror=()=>{};this.src='https://i.giphy.com/Y0NhkIdyT3TVBDWLkG.mp4';">
-        <img src="https://i.giphy.com/Y0NhkIdyT3TVBDWLkG.gif " alt="">
-    </video>`;
-}, 7700)
-}
+// async function sippingCoffee() {
+//   setTimeout(() => {
+//      container.innerHTML = `<h2>Coffee Time</h2><video src="https://i.giphy.com/media/Y0NhkIdyT3TVBDWLkG/giphy360p.mp4" autoplay="" loop="" muted="" playsinline="" onerror="this.onerror=()=>{};this.src='https://i.giphy.com/Y0NhkIdyT3TVBDWLkG.mp4';">
+//         <img src="https://i.giphy.com/Y0NhkIdyT3TVBDWLkG.gif " alt="">
+//     </video>`;
+// }, 7700)
+// }
 
-async function studying() {
-    setTimeout(() => {
-        container.innerHTML = `<h2>Studying</h2><video src="https://i.giphy.com/media/VP6DBjjWBzDBK8eqDO/giphy360p.mp4" autoplay="" loop="" muted="" playsinline="" onerror="this.onerror=()=>{};this.src='https://i.giphy.com/VP6DBjjWBzDBK8eqDO.mp4';">
-        <img src="https://i.giphy.com/VP6DBjjWBzDBK8eqDO.gif " alt="">
-    </video>`;
-   }, 11000)
-}
+// async function studying() {
+//     setTimeout(() => {
+//         container.innerHTML = `<h2>Studying</h2><video src="https://i.giphy.com/media/VP6DBjjWBzDBK8eqDO/giphy360p.mp4" autoplay="" loop="" muted="" playsinline="" onerror="this.onerror=()=>{};this.src='https://i.giphy.com/VP6DBjjWBzDBK8eqDO.mp4';">
+//         <img src="https://i.giphy.com/VP6DBjjWBzDBK8eqDO.gif " alt="">
+//     </video>`;
+//    }, 11000)
+// }
 
-async function goToEat() {
-      setTimeout(() => {
-        container.innerHTML = `<h2>Eating</h2><video src="https://i.giphy.com/media/mv7i2xjbgAqW8BD7te/giphy360p.mp4" autoplay="" loop="" muted="" playsinline="" onerror="this.onerror=()=>{};this.src='https://i.giphy.com/mv7i2xjbgAqW8BD7te.mp4';">
-        <img src="https://i.giphy.com/mv7i2xjbgAqW8BD7te.gif " alt="">
-    </video>`;
+// async function goToEat() {
+//       setTimeout(() => {
+//         container.innerHTML = `<h2>Eating</h2><video src="https://i.giphy.com/media/mv7i2xjbgAqW8BD7te/giphy360p.mp4" autoplay="" loop="" muted="" playsinline="" onerror="this.onerror=()=>{};this.src='https://i.giphy.com/mv7i2xjbgAqW8BD7te.mp4';">
+//         <img src="https://i.giphy.com/mv7i2xjbgAqW8BD7te.gif " alt="">
+//     </video>`;
     
-    }, 13000)
-}
+//     }, 13000)
+// }
 
-async function goToGym() {
-    setTimeout(() => {
-        container.innerHTML = `<h2>Workout</h2><video src="https://i.giphy.com/media/zMaweBUXlZzFrGdHrT/giphy360p.mp4" autoplay="" loop="" muted="" playsinline="" onerror="this.onerror=()=>{};this.src='https://i.giphy.com/zMaweBUXlZzFrGdHrT.mp4';">
-        <img src="https://i.giphy.com/zMaweBUXlZzFrGdHrT.gif " alt="">
-    </video>`;
+// async function goToGym() {
+//     setTimeout(() => {
+//         container.innerHTML = `<h2>Workout</h2><video src="https://i.giphy.com/media/zMaweBUXlZzFrGdHrT/giphy360p.mp4" autoplay="" loop="" muted="" playsinline="" onerror="this.onerror=()=>{};this.src='https://i.giphy.com/zMaweBUXlZzFrGdHrT.mp4';">
+//         <img src="https://i.giphy.com/zMaweBUXlZzFrGdHrT.gif " alt="">
+//     </video>`;
     
-    }, 16000)
-}
+//     }, 16000)
+// }
 
-async function congratulating() {
-    setTimeout(() => {
-        container.innerHTML = `<h1>Happy New Year!</h1> <h3>Merry Christmas!</h3> <video src="https://i.giphy.com/media/tMLGAJe7CYypcoeYYr/giphy360p.mp4" autoplay="" loop="" muted="" playsinline="" onerror="this.onerror=()=>{};this.src='https://i.giphy.com/tMLGAJe7CYypcoeYYr.mp4';">
-        <img src="https://i.giphy.com/tMLGAJe7CYypcoeYYr.gif " alt="">
-    </video>`;
+// async function congratulating() {
+//     setTimeout(() => {
+//         container.innerHTML = `<h1>Happy New Year OKTEN!</h1> <h3>Merry Christmas!</h3> <video src="https://i.giphy.com/media/tMLGAJe7CYypcoeYYr/giphy360p.mp4" autoplay="" loop="" muted="" playsinline="" onerror="this.onerror=()=>{};this.src='https://i.giphy.com/tMLGAJe7CYypcoeYYr.mp4';">
+//         <img src="https://i.giphy.com/tMLGAJe7CYypcoeYYr.gif " alt="">
+//     </video>`;
     
-    }, 18000)
-}
+//     }, 18000)
+// }
 
 
 
-async function schedule() {
+// async function schedule() {
 
-    await getUp();
-    await cookingBreakfast();
-    await sippingCoffee();
-    await studying();
-    await goToEat();
-    await goToGym();
-    await congratulating();
+//     await getUp();
+//     await cookingBreakfast();
+//     await sippingCoffee();
+//     await studying();
+//     await goToEat();
+//     await goToGym();
+//     await congratulating();
    
+// }
+
+// schedule();
+
+
+function wakeUp(day = 1){
+    return new Promise((resolve,reject) => {
+        setTimeout( () => {
+           if(day >= 1 && day <= 5){
+               resolve('Good morning!');
+           }
+
+           reject('Lets sleep in!')
+        }, 1000)
+    } )
 }
 
-schedule();
+function haveMeal(meal) {
+    return new Promise((resolve,reject) => {
+        setTimeout( () => {
+
+           meal ? resolve(`The ripe time to eat ${meal}`): reject('You need to go grocery shopping!')
+       
+        }, 2000)
+    } )
+
+}
+
+function studying(info){
+    return new Promise( (resolve, reject) => {
+        setTimeout(() => {
+            info ? resolve(`Time for studying ${info}`): reject('Chillax')
+        })
+    }, 5000)
+}
+
+function goToGym(workout){
+    return new Promise( (resolve, reject) => {
+        setTimeout(() => {
+            workout ? resolve(`Do ${workout} workout`): reject('Take a break!')
+        })
+    }, 4000)
+}
+
+let message = (message) => console.log(`=====${message}=====`);
+
+async function schedule(day) {
+    try{
+        let response = await wakeUp(day);
+        message(`Today is ${day} day of week`);
+        message(response);
+
+        response = await haveMeal('Pancakes');
+        message(response);
+
+        response = await studying('Information Technology');
+        message(response);
+
+        response = await goToGym('Strength');
+        message(response);
+
+        response = await haveMeal('Buckwheat');
+        message(response);
 
 
+    } catch(e){
+        console.log('======');
+        console.error(e);
+        console.log('======');
+    }
+}
+
+schedule(2);
