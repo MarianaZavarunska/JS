@@ -21,7 +21,7 @@ async function getUsers() {
         console.error(error);
     }
 }
-getUsers();
+
 
 async function buildThePage(){
     let users = await getUsers();
@@ -32,9 +32,10 @@ async function buildThePage(){
     users.forEach(user => {
         let userContainer = document.createElement('div');
         userContainer.classList.add('user-container');
-        let buttonContainer = document.createElement('div');
-        buttonContainer.classList.add('btn-container');
-        buttonContainer.innerHTML = `<a href='user-details.html'>Show Details</a>`;
+        let linkContainer = document.createElement('a');
+        linkContainer.classList.add('link-container');
+        linkContainer.innerText = 'Show Details';
+        linkContainer.href = 'user-details.html?id=' + user.id;
 
         for (const property in user) {
 
@@ -42,7 +43,7 @@ async function buildThePage(){
                 
                 let propertyContainer = document.createElement('div');
                 propertyContainer.innerHTML = `<span>${property}:</span> <span>${user[property]}</span>`;
-                userContainer.append(propertyContainer,buttonContainer);
+                userContainer.append(propertyContainer,linkContainer);
             } 
         }
 
