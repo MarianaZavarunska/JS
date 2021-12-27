@@ -1,3 +1,4 @@
+
 document.addEventListener('load', showUserDetail());
 
 async function getUserDetail() {
@@ -30,14 +31,14 @@ async function showUserDetail() {
 
     let postsLink = document.createElement('button');
     postsLink.className = 'posts-btn';
-    postsLink.innerHTML = `<a href= #> Show Posts</a>`;
+    postsLink.innerText = 'Show Posts';
 
     getAllInnerObject(user, userWrapper);
 
     userWrapper.append(postsLink);
     document.body.append(userWrapper);
 
-    postsLink.addEventListener('click', async() => {
+    postsLink.addEventListener('click', async(e) => {
 
         const posts = await getPosts();
         let postsContainer = document.createElement('div');
@@ -45,8 +46,10 @@ async function showUserDetail() {
 
         posts.forEach( post => {
             let postContainer = document.createElement('div');
-            postContainer.className = 'post-content';
+            postContainer.className = 'post-main';
+
             let postDetailLink = document.createElement('a');
+            postDetailLink.href = 'post-details.html?id=' + post.id + '&userId=' + post.userId;
             postDetailLink.innerText = 'Show Post Detail';
              
             for (const key in post) {
@@ -65,6 +68,8 @@ async function showUserDetail() {
 
         document.body.append(postsContainer);
         // postsLink.disabled = true;
+
+        postsLink.setAttribute("disabled", "");
 
     })
 
