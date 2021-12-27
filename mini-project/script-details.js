@@ -1,10 +1,10 @@
 
+let url = new URL(location.href);
+let userId = url.searchParams.get('userId');
+
 document.addEventListener('load', showUserDetail());
 
 async function getUserDetail() {
-    let url = new URL(location.href);
-    url = url.searchParams.get('id');
-
     try {
 
         const config = {
@@ -13,7 +13,7 @@ async function getUserDetail() {
             }
         };
 
-        const response = await fetch('https://jsonplaceholder.typicode.com/users/' + url, config);
+        const response = await fetch('https://jsonplaceholder.typicode.com/users/' + userId, config);
         const user = await response.json();
 
         return user;
@@ -49,7 +49,7 @@ async function showUserDetail() {
             postContainer.className = 'post-main';
 
             let postDetailLink = document.createElement('a');
-            postDetailLink.href = 'post-details.html?id=' + post.id + '&userId=' + post.userId;
+            postDetailLink.href = 'post-details.html?postId=' + post.id + '&userId=' + post.userId;
             postDetailLink.innerText = 'Show Post Detail';
              
             for (const key in post) {
@@ -95,10 +95,6 @@ function getAllInnerObject(user, userWrapper) {
 }
 
 async function getPosts() {
-
-    let url = new URL(location.href);
-    url = url.searchParams.get('id');
-
     try {
         const config = {
 
@@ -107,7 +103,7 @@ async function getPosts() {
             }
         }
 
-        const response = await fetch('https://jsonplaceholder.typicode.com/users/' + url + '/posts', config);
+        const response = await fetch('https://jsonplaceholder.typicode.com/users/' + userId + '/posts', config);
         const posts = response.json();
 
         return posts;

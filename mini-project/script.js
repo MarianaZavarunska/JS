@@ -35,7 +35,7 @@ async function buildThePage(){
         let linkContainer = document.createElement('a');
         linkContainer.classList.add('link-container');
         linkContainer.innerText = 'Show Details';
-        linkContainer.href = 'user-details.html?id=' + user.id;
+        linkContainer.href = 'user-details.html?userId=' + user.id;
 
         for (const property in user) {
 

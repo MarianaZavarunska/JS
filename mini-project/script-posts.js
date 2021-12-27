@@ -1,12 +1,10 @@
+
+let url = new URL(location.href);
+let postId = url.searchParams.get('postId');
+let userId = url.searchParams.get('userId');
 document.addEventListener('load', showPostDetail());
 
-
-
 async function getPost(){
-
-    let url = new URL(location.href);
-    let postId = url.searchParams.get('id');
-     
     const config ={
         headers:{
             Accept: 'application/json'
@@ -19,11 +17,9 @@ async function getPost(){
     return post;
 }
 
+
 async function getComments(){
 
-    let url = new URL(location.href);
-    let postId = url.searchParams.get('id');
-   
     const config = {
         headers: {
             Accept: 'application/json'
@@ -40,6 +36,11 @@ async function showPostDetail(){
     const post = await getPost();
     const comments = await getComments();
 
+
+    let navBtns= document.createElement('div');
+    navBtns.className = 'navigation';
+    navBtns.innerHTML = `<a href='user-details.html?userId=${userId}'>Back</a> <a href='index.html'>Home</a>`;
+    document.body.append(navBtns);
 
     let postContainer = document.createElement('div');
     postContainer.className = 'post-content';
