@@ -26,25 +26,91 @@ async function getUserDetail() {
 async function showUserDetail() {
     const user = await getUserDetail();
     let userWrapper = document.createElement('div');
+    userWrapper.classList.add('user-wrapper');
 
-    getAllInnerObject(user, userWrapper, '<span style="margin-right:15px;"></span>');
+    let postsLink = document.createElement('button');
+    postsLink.className = 'posts-btn';
+    postsLink.innerHTML = `<a href= #> Show Posts</a>`;
 
+    getAllInnerObject(user, userWrapper);
+
+    userWrapper.append(postsLink);
     document.body.append(userWrapper);
+
+    postsLink.addEventListener('click', async() => {
+
+        const posts = await getPosts();
+        let postsContainer = document.createElement('div');
+        postsContainer.className = 'posts-container';
+
+        posts.forEach( post => {
+            let postContainer = document.createElement('div');
+            postContainer.className = 'post-content';
+            let postDetailLink = document.createElement('a');
+            postDetailLink.innerText = 'Show Post Detail';
+             
+            for (const key in post) {
+
+               if( key === 'id' || key === 'title'){
+                   let keyContainer = document.createElement('div');
+
+                   keyContainer.innerHTML = `<strong>${key}:</strong> ${post[key]}`;
+                   postContainer.append(keyContainer);
+               }
+            
+            }
+            postContainer.append(postDetailLink);
+            postsContainer.append(postContainer);
+        });
+
+        document.body.append(postsContainer);
+        // postsLink.disabled = true;
+
+    })
+
 }
 
-function getAllInnerObject(user, userWrapper, space) {
+function getAllInnerObject(user, userWrapper) {
 
     for (const key in user) {
         let keyWrapper = document.createElement('div');
-        keyWrapper.innerHTML = space + `${key}:`;
+        keyWrapper.innerHTML = `<strong>${key}:</strong>`;
+        keyWrapper.classList.add('detail-container');
 
         if (typeof user[key] === 'object') {
-            getAllInnerObject(user[key], keyWrapper, space + space);
+            getAllInnerObject(user[key], keyWrapper);
         } else {
 
-            keyWrapper.innerHTML = space + `${key}: ${user[key]}`;
+            keyWrapper.innerHTML = `<strong>${key}:</strong> ${user[key]}`;
 
         }
         userWrapper.append(keyWrapper);
     }
+
 }
+
+async function getPosts() {
+
+    let url = new URL(location.href);
+    url = url.searchParams.get('id');
+
+    try {
+        const config = {
+
+            headers: {
+                Accept: 'application/json'
+            }
+        }
+
+        const response = await fetch('https://jsonplaceholder.typicode.com/users/' + url + '/posts', config);
+        const posts = response.json();
+
+        return posts;
+
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+
+
